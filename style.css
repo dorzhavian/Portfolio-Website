@@ -1,6 +1,10 @@
-body {background-color: #F8EDE3;}
 h1 {
     text-align: center;
-    font-display: bold;
+
 }
 p {text-align: center;}
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #F5F7F8 50%, #DFD3C3 50%);
+}
