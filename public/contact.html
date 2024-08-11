@@ -5,10 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact</title>
   <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 40px;
+    }
+
+    .contact-buttons a {
+      background-color: transparent;
+      color: #007bff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border: 2px solid #007bff;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+      margin: 5px;
+      display: inline-block;
+    }
+
+    .contact-buttons a:hover {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <h1>Contact Me:</h1>
-  <p>Tel: +972526005290 <br> Email: dorzhavian@gmail.com <br> Address: Hahasmonaim 1 <br />Netanya<br /> Israel<br />
+  <h1>How To Reach Me ?</h1>
+  <p>
+    I'm avaliable for any question :) 
   </p>
+  <div class="contact-buttons">
+    <a href="mailto:dorzhavian@gmail.com">Email Me</a>
+    <a href="https://www.linkedin.com/in/dor-zhavian-19a88b30a" target="_blank">LinkedIn</a>
+    <a href="tel:+972526005290">Call Me</a>
+  </div>
 </body>
 </html>
