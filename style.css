@@ -103,6 +103,76 @@ main {
     border-radius: 8px;
 }
 
+.index-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.index-page img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.index-page .text-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.index-page h1 {
+    margin-bottom: 10px;
+}
+
+.index-page p {
+    font-size: 1.2em;
+}
+
+.index-page-buttons {
+    margin-top: 20px;
+}
+
+.index-page-buttons a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #007bff;
+    background-color: transparent;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.index-page-buttons a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #333;
+    color: white;
+}
+
+.header-left {
+    font-size: 1.2em;
+}
+
+.header-right {
+    display: flex;
+}
+
 .about-page main {
     display: flex;
     flex-direction: column;
@@ -119,4 +189,55 @@ main {
     margin-top: 20px;
     width: 20%;
     height: auto;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+.project-box {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.project-box:hover {
+    transform: scale(1.05);
+}
+
+.project-box h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.project-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.project-box a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #007bff;
+    background-color: transparent;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.project-box a:hover {
+    background-color: #007bff;
+    color: white;
 }
