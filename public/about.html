@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>About</title>
 </head>
 <body class="about-page">
-    <header>
-        <h1>About Me</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="./myprojects.html">Projects</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="bg-light p-3 mb-4">
+        <div class="container">
+            <h1 class="text-center">About Me</h1>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./myprojects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section>
+    <main class="container">
+        <section class="mb-4">
             <h2>Summary</h2>
             <p>My name is Dor Zhavian, I'm 24 years old from Netanya, Israel. 
             Currently studying at Afeka College of Engineering in TLV. 
@@ -27,14 +29,14 @@
             Seeking opportunities for professional growth, deep learning, and to exhibit commitment to employer & company.</p>
         </section>
 
-        <section>
+        <section class="mb-4">
             <h2>Education</h2>
             <ul>
                 <li><h4>Afeka College of Engineering</h4></li>
             </ul>
         </section>
 
-        <section>
+        <section class="mb-4">
             <h2>Work Experience</h2>
             <ul>
                 <li><h4>Lecturer at "Pisga Cyber"</h4></li>
@@ -42,18 +44,24 @@
             </ul>
         </section>
 
-        <section>
+        <section class="mb-4">
             <h2>Skills</h2>
             <ul>
                 <li>Fast Learner, Java, Mathematics, Python, Kali Linux, OOP, Programming, Presentation skills, Leadership, C++, HTML5, Nmap, Wireshark, CSS, JavaScript, Node.js, SQL, React, Tool/Technology</li>
             </ul>
         </section>
         
-        <img src="../assets/images/Profile picture.jpg" alt="Profile picture">
+        <div class="text-center">
+            <img src="../assets/images/Profile picture.jpg" alt="Profile picture" class="img-fluid rounded">
+        </div>
     </main>
 
-    <footer>
+    <footer class="bg-light text-center p-3">
         <p>&copy; 2024 Dor Zhavian. All rights reserved.</p>
     </footer>
+
+    <!-- Bootstrap JavaScript (נדרש עבור חלק מהפונקציות) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

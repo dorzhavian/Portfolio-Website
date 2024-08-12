@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dor Zhavian's Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    <header>
-        <div class="header-content">
-            <div class="header-left">SITE UNDER CONSTRUCTION</div>
+
+<body class="text-center">
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="header-left">SITE UNDER CONSTRUCTION</div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="index-page">
-        <img src="./assets/images/174086942.png" alt="Dor Zhavian's Picture">
+    <main role="main" class="cover-container d-flex flex-column align-items-center justify-content-center min-vh-100">
+        <img src="./assets/images/174086942.png" alt="Dor Zhavian's Picture" class="img-fluid mb-4" style="max-width: 200px; border-radius: 50%;">
         <div class="text-content">
             <h1>Hey there!</h1>
-            <p>
-                My Name is Dor Zhavian and welcome to my Portfolio site
-            </p>
-            <div class="index-page-buttons">
-                <a href="./public/about.html">About me</a>
-                <a href="./public/contact.html">Contact me</a>
-                <a href="./public/myprojects.html">Projects</a>
+            <p>My Name is Dor Zhavian and welcome to my Portfolio site</p>
+            <div class="index-page-buttons mt-3">
+                <a href="./public/about.html" class="btn btn-light btn-lg mr-2">About me</a>
+                <a href="./public/contact.html" class="btn btn-light btn-lg mr-2">Contact me</a>
+                <a href="./public/myprojects.html" class="btn btn-light btn-lg">Projects</a>
             </div>
         </div>
     </main>
 
-    <footer>
-        <p>© 2024 Dor Zhavian. All rights reserved.</p>
+    <footer class="bg-dark text-white py-3">
+        <div class="container">
+            <p>© 2024 Dor Zhavian. All rights reserved.</p>
+        </div>
     </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
+
