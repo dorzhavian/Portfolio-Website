@@ -1,3 +1,4 @@
+/* Reset and global styles */
 body, h1, h2, h3, h4, p, ul {
     margin: 0;
     padding: 0;
@@ -22,10 +23,7 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
-header p {
-    font-size: 1.2em;
-}
-
+/* Navigation styles */
 nav ul {
     display: flex;
     justify-content: center;
@@ -68,6 +66,7 @@ footer nav ul li a:hover {
     transform: scale(1.1);
 }
 
+/* Background shapes */
 body::before {
     content: '';
     position: absolute;
@@ -94,6 +93,7 @@ body::after {
     z-index: -1;
 }
 
+/* Main content */
 main {
     margin: 20px auto;
     max-width: 800px;
@@ -103,6 +103,7 @@ main {
     border-radius: 8px;
 }
 
+/* Index page specific styles */
 .index-page {
     display: flex;
     align-items: center;
@@ -152,6 +153,7 @@ main {
     color: white;
 }
 
+/* Header content */
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -173,6 +175,7 @@ main {
     display: flex;
 }
 
+/* About page styles */
 .about-page main {
     display: flex;
     flex-direction: column;
@@ -191,6 +194,7 @@ main {
     height: auto;
 }
 
+/* Projects container */
 .projects-container {
     display: flex;
     flex-wrap: wrap;
@@ -240,4 +244,97 @@ main {
 .project-box a:hover {
     background-color: #007bff;
     color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .header-content {
+        padding: 0 15px;
+    }
+
+    .index-page img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .about-page img {
+        width: 30%;
+    }
+}
+
+@media (max-width: 992px) {
+    .index-page {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .index-page img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .index-page-buttons a {
+        padding: 8px 16px;
+    }
+
+    .projects-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project-box {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-left {
+        font-size: 1em;
+    }
+
+    .header-right {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about-page img {
+        width: 40%;
+    }
+
+    .index-page p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-content {
+        padding: 0 10px;
+    }
+
+    .index-page img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .index-page p {
+        font-size: 0.9em;
+    }
+
+    .project-box {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .project-box h2 {
+        font-size: 1.2em;
+    }
+
+    .about-page img {
+        width: 50%;
+    }
 }
