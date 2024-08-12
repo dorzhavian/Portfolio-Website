@@ -4,33 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header>
-        <h1>Projects</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
+
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <h1 class="text-center">Projects</h1>
+            <nav class="nav justify-content-center">
+                <a class="nav-link text-light" href="../index.html">Home</a>
+                <a class="nav-link text-light" href="./about.html">About</a>
+                <a class="nav-link text-light" href="./contact.html">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <h1>My Projects so far:</h1>
-        <div class="projects-container">
-            <div class="project-box">
-                <h2>DealZone</h2>
-                <img src="../assets/images/Designer.jpeg" alt="DealZone Project">
-                <a href="https://github.com/dorzhavian/DealZone" target="_blank">View on GitHub</a>
+    <main class="container my-5">
+        <h2 class="text-center mb-4">My Projects so far:</h2>
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="card text-center">
+                    <img src="../assets/images/Designer.jpeg" class="card-img-top" alt="DealZone Project">
+                    <div class="card-body">
+                        <h5 class="card-title">DealZone</h5>
+                        <a href="https://github.com/dorzhavian/DealZone" class="btn btn-primary" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Dor Zhavian. All rights reserved.</p>
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2024 Dor Zhavian. All rights reserved.</p>
+        </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

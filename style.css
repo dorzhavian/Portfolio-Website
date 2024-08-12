@@ -1,4 +1,3 @@
-/* Reset and global styles */
 body, h1, h2, h3, h4, p, ul {
     margin: 0;
     padding: 0;
@@ -14,10 +13,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Changed from height to min-height for better flexibility */
+    min-height: 100vh; 
 }
 
-/* Header and footer styles */
+
 header, footer {
     width: 100%;
     background-color: #333;
@@ -31,7 +30,6 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
-/* Navigation styles */
 nav ul {
     display: flex;
     justify-content: center;
@@ -74,7 +72,6 @@ footer nav ul li a:hover {
     transform: scale(1.1);
 }
 
-/* Background shapes */
 body::before {
     content: '';
     position: absolute;
@@ -101,7 +98,6 @@ body::after {
     z-index: -1;
 }
 
-/* Main content */
 main {
     margin: 20px auto;
     max-width: 800px;
@@ -111,7 +107,6 @@ main {
     border-radius: 8px;
 }
 
-/* Index page specific styles */
 .index-page {
     display: flex;
     align-items: center;
@@ -161,7 +156,6 @@ main {
     color: white;
 }
 
-/* Header content */
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -183,7 +177,6 @@ main {
     display: flex;
 }
 
-/* About page styles */
 .about-page main {
     display: flex;
     flex-direction: column;
@@ -254,7 +247,6 @@ main {
     color: white;
 }
 
-/* Contact page styles */
 .contact-page {
     display: flex;
     flex-direction: column;
