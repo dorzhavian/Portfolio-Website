@@ -10,9 +10,16 @@ body {
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Changed from height to min-height for better flexibility */
 }
 
+/* Header and footer styles */
 header, footer {
+    width: 100%;
     background-color: #333;
     color: white;
     text-align: center;
@@ -247,6 +254,47 @@ main {
     color: white;
 }
 
+/* Contact page styles */
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-page h1 {
+    margin-bottom: 20px;
+}
+
+.contact-page p {
+    margin-bottom: 40px;
+}
+
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-buttons a {
+    background-color: transparent;
+    color: #007bff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 5px;
+    display: inline-block;
+}
+
+.contact-buttons a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
 /* Responsive styles */
 @media (max-width: 1200px) {
     .header-content {
@@ -285,6 +333,15 @@ main {
 
     .project-box {
         max-width: 100%;
+    }
+
+    .contact-page {
+        padding: 20px;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
