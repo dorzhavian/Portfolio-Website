@@ -194,3 +194,13 @@ main {
     width: 20%;
     height: auto;
 }
+
+.carousel-control-prev-icon,                      /* change the control carousel colors */
+.carousel-control-next-icon {
+    background-color: #28a745;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+
