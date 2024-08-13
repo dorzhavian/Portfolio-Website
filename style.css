@@ -203,4 +203,18 @@ main {
     height: 60px;
 }
 
+/* arrows for swipe in projects*/
+.arrow {
+    display: inline-block;
+    font-size: 24px;
+    margin: 0 10px;
+}
 
+/* zoom to the card */
+.card {                                           
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
