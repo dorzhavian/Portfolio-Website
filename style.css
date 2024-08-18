@@ -125,4 +125,15 @@ img:hover {
   transform: scale(1.1);
 }
 
+.profile-picture-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-picture-section img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
 
