@@ -125,6 +125,12 @@ img:hover {
   transform: scale(1.1);
 }
 
+.no-scale {
+  transition: none;
+  transform: none !important;
+}
+
+
 .profile-picture-section {
   display: flex;
   align-items: center;
