@@ -5,12 +5,11 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-
       <main className="flex-grow pt-16">
         {/* Hero Section */}
         <section
           id="hero"
-          className="h-screen bg-gradient-to-br from-purple-700 via-pink-500 to-red-400 flex flex-col justify-center items-center text-white text-center">
+          className="h-screen bg-gradient-to-br from-purple-700 via-pink-500 to-red-400 flex flex-col justify-center items-center text-white text-center relative -mt-16">
           <h1 className="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in-down">
             Hi, I’m Dor Zhavian
           </h1>

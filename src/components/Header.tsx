@@ -5,6 +5,18 @@ import { useState } from "react";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
+    e.preventDefault();
+    const target = document.querySelector(targetId);
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      setIsOpen(false); // Close mobile menu after clicking
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 w-full bg-gray-900 text-white shadow z-50">
       <nav className="container mx-auto flex justify-between items-center px-4 py-3">
@@ -12,10 +24,42 @@ const Header = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6">
-          <li><a href="#hero" className="hover:text-gray-400">Home</a></li>
-          <li><a href="#about" className="hover:text-gray-400">About</a></li>
-          <li><a href="#projects" className="hover:text-gray-400">Projects</a></li>
-          <li><a href="#contact" className="hover:text-gray-400">Contact</a></li>
+          <li>
+            <a
+              href="#hero"
+              onClick={(e) => handleScroll(e, "#hero")}
+              className="hover:text-gray-400"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="#about"
+              onClick={(e) => handleScroll(e, "#about")}
+              className="hover:text-gray-400"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#projects"
+              onClick={(e) => handleScroll(e, "#projects")}
+              className="hover:text-gray-400"
+            >
+              Projects
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              onClick={(e) => handleScroll(e, "#contact")}
+              className="hover:text-gray-400"
+            >
+              Contact
+            </a>
+          </li>
         </ul>
 
         {/* Mobile Hamburger */}
@@ -52,10 +96,42 @@ const Header = () => {
       {isOpen && (
         <div className="md:hidden bg-gray-800">
           <ul className="flex flex-col space-y-2 px-4 py-2">
-            <li><a href="#hero" className="block py-2 hover:text-gray-400">Home</a></li>
-            <li><a href="#about" className="block py-2 hover:text-gray-400">About</a></li>
-            <li><a href="#projects" className="block py-2 hover:text-gray-400">Projects</a></li>
-            <li><a href="#contact" className="block py-2 hover:text-gray-400">Contact</a></li>
+            <li>
+              <a
+                href="#hero"
+                onClick={(e) => handleScroll(e, "#hero")}
+                className="block py-2 hover:text-gray-400"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="#about"
+                onClick={(e) => handleScroll(e, "#about")}
+                className="block py-2 hover:text-gray-400"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#projects"
+                onClick={(e) => handleScroll(e, "#projects")}
+                className="block py-2 hover:text-gray-400"
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                onClick={(e) => handleScroll(e, "#contact")}
+                className="block py-2 hover:text-gray-400"
+              >
+                Contact
+              </a>
+            </li>
           </ul>
         </div>
       )}
