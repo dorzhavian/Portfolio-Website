@@ -1,7 +1,13 @@
+import Header from "../components/Header";
+
 export default function Home() {
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <h1 className="text-5xl text-blue-500">It works!</h1>
-    </div>
+    <>
+      <Header />
+      <main>
+        <h2>Welcome to my portfolio</h2>
+        <p>This is where I showcase my projects and skills.</p>
+      </main>
+    </>
   );
 }
