@@ -8,10 +8,18 @@ export default function Home() {
 
       <main className="flex-grow pt-16">
         {/* Hero Section */}
-        <section id="hero" className="h-screen bg-gradient-to-b from-purple-600 to-pink-400 flex flex-col justify-center items-center text-white">
-          <h1 className="text-5xl font-extrabold mb-4">Hi, I’m Dor Zhavian</h1>
-          <p className="text-xl mb-6">Software Engineer | Building cool stuff</p>
-          <a href="#projects" className="px-6 py-3 bg-white text-purple-700 font-semibold rounded shadow hover:bg-gray-100 transition">
+        <section
+          id="hero"
+          className="h-screen bg-gradient-to-br from-purple-700 via-pink-500 to-red-400 flex flex-col justify-center items-center text-white text-center">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in-down">
+            Hi, I’m Dor Zhavian
+          </h1>
+          <p className="text-xl md:text-2xl mb-6 animate-fade-in-up">
+            Software Engineer | Building cool stuff | AI Enthusiast
+          </p>
+          <a
+            href="#projects"
+            className="px-8 py-3 bg-white text-purple-700 font-semibold rounded-full shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300">
             See My Work
           </a>
         </section>
