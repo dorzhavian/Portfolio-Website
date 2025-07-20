@@ -5,30 +5,35 @@ import { useState } from "react";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
-    e.preventDefault();
-    const target = document.querySelector(targetId);
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-      setIsOpen(false); // Close mobile menu after clicking
-    }
-  };
+const handleScroll = (
+  e: React.MouseEvent<HTMLAnchorElement>,
+  targetId: string
+) => {
+  e.preventDefault();
+  const target = document.querySelector(targetId);
+  if (target) {
+    const yOffset = -80;
+    const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
+    setIsOpen(false);
+  }
+};
+
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-gray-900 text-white shadow z-50">
+    <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md text-gray-100 z-50">
       <nav className="container mx-auto flex justify-between items-center px-4 py-3">
-        <h1 className="text-2xl font-bold">Dor Zhavian</h1>
+        {/* Logo (Right aligned) */}
+        <h1 className="text-lg md:text-xl font-bold tracking-wide">ZHAVIAN.</h1>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-6">
+        {/* Centered Menu */}
+        <ul className="absolute left-1/2 transform -translate-x-1/2 flex space-x-6 text-sm md:text-base font-medium">
           <li>
             <a
               href="#hero"
               onClick={(e) => handleScroll(e, "#hero")}
-              className="hover:text-gray-400"
+              className="hover:text-purple-400 transition-colors duration-300"
             >
               Home
             </a>
@@ -37,7 +42,7 @@ const Header = () => {
             <a
               href="#about"
               onClick={(e) => handleScroll(e, "#about")}
-              className="hover:text-gray-400"
+              className="hover:text-purple-400 transition-colors duration-300"
             >
               About
             </a>
@@ -46,7 +51,7 @@ const Header = () => {
             <a
               href="#projects"
               onClick={(e) => handleScroll(e, "#projects")}
-              className="hover:text-gray-400"
+              className="hover:text-purple-400 transition-colors duration-300"
             >
               Projects
             </a>
@@ -55,14 +60,14 @@ const Header = () => {
             <a
               href="#contact"
               onClick={(e) => handleScroll(e, "#contact")}
-              className="hover:text-gray-400"
+              className="hover:text-purple-400 transition-colors duration-300"
             >
               Contact
             </a>
           </li>
         </ul>
 
-        {/* Mobile Hamburger */}
+        {/* Hamburger Menu for Mobile */}
         <button
           className="md:hidden focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
@@ -92,15 +97,14 @@ const Header = () => {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-gray-800">
-          <ul className="flex flex-col space-y-2 px-4 py-2">
+        <div className="md:hidden bg-black bg-opacity-80 backdrop-blur-md">
+          <ul className="flex flex-col space-y-4 px-4 py-4 text-sm">
             <li>
               <a
                 href="#hero"
                 onClick={(e) => handleScroll(e, "#hero")}
-                className="block py-2 hover:text-gray-400"
+                className="block py-2 hover:text-purple-400 transition-colors duration-300"
               >
                 Home
               </a>
@@ -109,7 +113,7 @@ const Header = () => {
               <a
                 href="#about"
                 onClick={(e) => handleScroll(e, "#about")}
-                className="block py-2 hover:text-gray-400"
+                className="block py-2 hover:text-purple-400 transition-colors duration-300"
               >
                 About
               </a>
@@ -118,7 +122,7 @@ const Header = () => {
               <a
                 href="#projects"
                 onClick={(e) => handleScroll(e, "#projects")}
-                className="block py-2 hover:text-gray-400"
+                className="block py-2 hover:text-purple-400 transition-colors duration-300"
               >
                 Projects
               </a>
@@ -127,7 +131,7 @@ const Header = () => {
               <a
                 href="#contact"
                 onClick={(e) => handleScroll(e, "#contact")}
-                className="block py-2 hover:text-gray-400"
+                className="block py-2 hover:text-purple-400 transition-colors duration-300"
               >
                 Contact
               </a>
