@@ -5,29 +5,26 @@ import { useState } from "react";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-const handleScroll = (
-  e: React.MouseEvent<HTMLAnchorElement>,
-  targetId: string
-) => {
-  e.preventDefault();
-  const target = document.querySelector(targetId);
-  if (target) {
-    const yOffset = -80;
-    const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-    window.scrollTo({ top: y, behavior: "smooth" });
-    setIsOpen(false);
-  }
-};
-
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string
+  ) => {
+    e.preventDefault();
+    const target = document.querySelector(targetId);
+    if (target) {
+      const y = target.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: y,
+        behavior: "smooth"
+      });
+      setIsOpen(false);
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md text-gray-100 z-50">
       <nav className="container mx-auto flex justify-between items-center px-4 py-3">
-        {/* Logo (Right aligned) */}
         <h1 className="text-lg md:text-xl font-bold tracking-wide">ZHAVIAN.</h1>
-
-        {/* Centered Menu */}
         <ul className="absolute left-1/2 transform -translate-x-1/2 flex space-x-6 text-sm md:text-base font-medium">
           <li>
             <a
@@ -67,7 +64,6 @@ const handleScroll = (
           </li>
         </ul>
 
-        {/* Hamburger Menu for Mobile */}
         <button
           className="md:hidden focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}

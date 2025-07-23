@@ -2,6 +2,7 @@
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
@@ -27,7 +28,7 @@ export default function Home() {
             <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight">
               <Typewriter
                 words={["Dor Zhavian"]}
-                loop={1} // לא לחזור
+                loop={1}
                 cursor
                 cursorStyle="|"
                 typeSpeed={150}
@@ -40,6 +41,14 @@ export default function Home() {
             </p>
             <a
               href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.querySelector("#projects");
+                if (target) {
+                  const y = target.getBoundingClientRect().top + window.scrollY;
+                  window.scrollTo({ top: y, behavior: "smooth" });
+                }
+              }}
               className="mt-8 inline-block px-8 py-3 bg-purple-600 text-white font-medium rounded-full shadow-lg hover:bg-purple-700 transition"
             >
               View My Work
@@ -48,10 +57,7 @@ export default function Home() {
         </motion.section>
 
         {/* About Section */}
-        <section
-          id="about"
-          className="py-28 bg-gray-900 text-gray-100"
-        >
+        <section id="about" className="py-28 bg-gray-900 text-gray-100">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-5xl font-extrabold mb-6 text-purple-500">
               About Me
@@ -64,10 +70,7 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section
-          id="projects"
-          className="py-28 bg-gray-900 text-gray-100"
-        >
+        <section id="projects" className="py-28 bg-gray-900 text-gray-100">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-5xl font-extrabold mb-6 text-purple-500">
               Projects
@@ -76,55 +79,63 @@ export default function Home() {
             <p className="text-lg text-gray-400 mb-10">
               A selection of my work showcasing different technologies.
             </p>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Card 1 */}
-              <div className="p-6 bg-gray-800 rounded-lg shadow hover:shadow-xl hover:scale-105 transition-transform duration-300">
-                <h3 className="text-2xl font-semibold mb-2 text-purple-400">E-commerce App</h3>
-                <p className="text-gray-300 mb-4">
-                  A Java-based e-commerce system with database integration.
-                </p>
-                <a
-                  href="#"
-                  className="inline-block px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition"
-                >
-                  View
-                </a>
-              </div>
-              {/* Card 2 */}
-              <div className="p-6 bg-gray-800 rounded-lg shadow hover:shadow-xl hover:scale-105 transition-transform duration-300">
-                <h3 className="text-2xl font-semibold mb-2 text-purple-400">Snake Game</h3>
-                <p className="text-gray-300 mb-4">
-                  A browser-based Snake game built with JavaScript and Canvas.
-                </p>
-                <a
-                  href="#"
-                  className="inline-block px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition"
-                >
-                  View
-                </a>
-              </div>
-              {/* Card 3 */}
-              <div className="p-6 bg-gray-800 rounded-lg shadow hover:shadow-xl hover:scale-105 transition-transform duration-300">
-                <h3 className="text-2xl font-semibold mb-2 text-purple-400">DorKES Bot</h3>
-                <p className="text-gray-300 mb-4">
-                  An AI chatbot with a unique personality built using Python & Flask.
-                </p>
-                <a
-                  href="#"
-                  className="inline-block px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition"
-                >
-                  View
-                </a>
-              </div>
+              {/* Project 1 – E-commerce */}
+              <Tilt
+                glareEnable={true}
+                glareMaxOpacity={0.2}
+                scale={1.05}
+                transitionSpeed={400}
+                className="rounded-lg shadow-lg"
+              >
+                <div className="h-64 bg-gray-800 relative group rounded-lg overflow-hidden flex flex-col justify-center items-center">
+                  <div className="absolute inset-0 bg-black/30 flex flex-col justify-center items-center opacity-100 group-hover:bg-black/50 transition-all duration-500">
+                    <h3 className="text-2xl text-white font-bold mb-2">E-commerce App</h3>
+                    <p className="text-gray-300 mb-4 px-4">
+                      A Java-based e-commerce system with database integration.
+                    </p>
+                    <a
+                      href="#"
+                      className="inline-block px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition"
+                    >
+                      View
+                    </a>
+                  </div>
+                </div>
+              </Tilt>
+
+              {/* Project 2 - (Coming Soon) */}
+              <Tilt
+                glareEnable={true}
+                glareMaxOpacity={0.2}
+                scale={1.05}
+                transitionSpeed={400}
+                className="rounded-lg shadow-lg"
+              >
+                <div className="h-64 bg-gray-800 flex items-center justify-center text-gray-500 text-2xl font-bold rounded-lg">
+                  🚧 Coming Soon
+                </div>
+              </Tilt>
+
+              {/* Project 3 – (Coming Soon) */}
+              <Tilt
+                glareEnable={true}
+                glareMaxOpacity={0.2}
+                scale={1.05}
+                transitionSpeed={400}
+                className="rounded-lg shadow-lg"
+              >
+                <div className="h-64 bg-gray-800 flex items-center justify-center text-gray-500 text-2xl font-bold rounded-lg">
+                  🚧 Coming Soon
+                </div>
+              </Tilt>
             </div>
           </div>
         </section>
 
         {/* Contact Section */}
-        <section
-          id="contact"
-          className="py-28 bg-gray-900 text-gray-100"
-        >
+        <section id="contact" className="py-28 bg-gray-900 text-gray-100">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-5xl font-extrabold mb-10 text-purple-500">
               Contact Me
