@@ -37,7 +37,7 @@ export default function Home() {
               />
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-xl">
-              Software Engineer • Full Stack Developer • AI Enthusiast
+              Software Engineer Student• Full Stack Developer • AI Enthusiast
             </p>
             <a
               href="#projects"
@@ -63,9 +63,20 @@ export default function Home() {
               About Me
             </h2>
             <div className="w-24 h-1 bg-purple-600 mx-auto mb-8 rounded"></div>
-            <p className="text-xl leading-relaxed max-w-3xl mx-auto text-gray-300">
-              I’m a software engineer focused on building clean, user-friendly applications. Experienced in Java, full-stack development, and AI projects.
-            </p>
+            <div className="text-xl leading-relaxed max-w-3xl mx-auto text-gray-300 space-y-6">
+              <p>
+                My name is <span className="text-purple-400 font-semibold">Dor Zhavian</span> and I'm a passionate <span className="text-purple-400 font-semibold">software engineer student</span> with a strong focus on building elegant, high-performance web applications. 
+                I enjoy crafting responsive and intuitive interfaces, as well as designing robust backend systems.
+              </p>
+              <p>
+                My primary stack includes <span className="text-purple-400">Java</span>, <span className="text-purple-400">TypeScript</span>, <span className="text-purple-400">React</span>, and <span className="text-purple-400">Next.js</span>. 
+                I also love working with databases (both SQL & NoSQL), cloud technologies, and experimenting with AI-based solutions.
+              </p>
+              <p>
+                I take pride in clean code, continuous learning, and pushing my boundaries to deliver projects that make an impact. 
+                Whether it's building a dynamic portfolio, automating a workflow, or contributing to an open-source project — I’m all in.
+              </p>
+            </div>
           </div>
         </section>
 
