@@ -145,7 +145,7 @@ export default function Home() {
                 <i className="bi bi-envelope-fill text-5xl"></i>
               </a>
               <a
-                href="https://www.linkedin.com/in/dor-zhavian"
+                href="https://www.linkedin.com/in/dor-zhavian-19a88b30a"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-purple-400 transition-transform transform hover:scale-125"
