@@ -1,24 +1,39 @@
+"use client";
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-black text-gray-100">
       <Header />
-      <main className="flex-grow pt-16">
+      <main className="flex-grow">
         {/* Hero Section */}
-        <section
+        <motion.section
           id="hero"
           className="h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 text-white flex flex-col justify-center items-center text-center relative"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
         >
           <div className="flex flex-col items-center space-y-6">
             <img
-              src="./profile.png"
+              src="/profile.png"
               alt="Dor Zhavian"
               className="w-40 h-40 rounded-full object-contain"
             />
             <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight">
-              Dor Zhavian
+              <Typewriter
+                words={["Dor Zhavian"]}
+                loop={1} // לא לחזור
+                cursor
+                cursorStyle="|"
+                typeSpeed={150}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-xl">
               Software Engineer • Full Stack Developer • AI Enthusiast
@@ -30,7 +45,7 @@ export default function Home() {
               View My Work
             </a>
           </div>
-        </section>
+        </motion.section>
 
         {/* About Section */}
         <section
