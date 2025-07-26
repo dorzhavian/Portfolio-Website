@@ -37,7 +37,7 @@ export default function Home() {
               />
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-xl">
-              Software Engineer Student• Full Stack Developer • AI Enthusiast
+              Software Engineer Student • Full Stack Developer • AI Enthusiast
             </p>
             <a
               href="#projects"
@@ -63,22 +63,78 @@ export default function Home() {
               About Me
             </h2>
             <div className="w-24 h-1 bg-purple-600 mx-auto mb-8 rounded"></div>
-            <div className="text-xl leading-relaxed max-w-3xl mx-auto text-gray-300 space-y-6">
+
+            <div className="text-xl leading-relaxed max-w-3xl mx-auto text-gray-300 space-y-6 mb-16">
               <p>
-                My name is <span className="text-purple-400 font-semibold">Dor Zhavian</span> and I'm a passionate <span className="text-purple-400 font-semibold">software engineer student</span> with a strong focus on building elegant, high-performance web applications. 
-                I enjoy crafting responsive and intuitive interfaces, as well as designing robust backend systems.
+                I'm <span className="text-purple-400 font-semibold">Dor Zhavian</span>, a dedicated <span className="text-purple-400 font-semibold">software engineering student</span> with a passion for creating intuitive and efficient digital experiences.
               </p>
               <p>
-                My primary stack includes <span className="text-purple-400">Java</span>, <span className="text-purple-400">TypeScript</span>, <span className="text-purple-400">React</span>, and <span className="text-purple-400">Next.js</span>. 
-                I also love working with databases (both SQL & NoSQL), cloud technologies, and experimenting with AI-based solutions.
+                I specialize in building full-stack applications that are scalable, secure, and user-friendly. My stack includes <span className="text-purple-400">Java</span>, <span className="text-purple-400">TypeScript</span>, <span className="text-purple-400">React</span> & <span className="text-purple-400">Next.js</span>, plus SQL/NoSQL DBs.
               </p>
               <p>
-                I take pride in clean code, continuous learning, and pushing my boundaries to deliver projects that make an impact. 
-                Whether it's building a dynamic portfolio, automating a workflow, or contributing to an open-source project — I’m all in.
+                I’m constantly exploring new tech, contributing to challenging projects, and writing clean, maintainable code that makes an impact.
               </p>
+            </div>
+
+            {/* Skills Grid */}
+            <div className="grid grid-cols-4 gap-10 justify-center items-start">
+              {/* Row 1 */}
+              <div className="flex flex-col items-center space-y-2">
+                <i className="devicon-html5-plain colored text-6xl" />
+                <span className="text-sm">HTML</span>
+              </div>
+              <div className="flex flex-col items-center space-y-2">
+                <i className="devicon-javascript-plain colored text-6xl" />
+                <span className="text-sm">JavaScript</span>
+              </div>
+              <div className="flex flex-col items-center space-y-2">
+                <i className="devicon-css3-plain colored text-6xl" />
+                <span className="text-sm">CSS</span>
+              </div>
+              <div className="flex flex-col items-center space-y-2">
+                <i className="devicon-react-original colored text-6xl" />
+                <span className="text-sm">React</span>
+              </div>
+
+              {/* Row 2 */}
+              <div className="flex flex-col items-center space-y-2">
+                <i className="devicon-nextjs-original colored text-6xl" />
+                <span className="text-sm">Next.js</span>
+              </div>
+              <div className="flex flex-col items-center space-y-2">
+                <i className="devicon-nodejs-plain colored text-6xl" />
+                <span className="text-sm">Node.js</span>
+              </div>
+              <div className="flex flex-col items-center space-y-2">
+                <i className="devicon-java-plain colored text-6xl" />
+                <span className="text-sm">Java</span>
+              </div>
+              <div className="flex flex-col items-center space-y-2">
+                <i className="devicon-typescript-plain colored text-6xl" />
+                <span className="text-sm">TypeScript</span>
+              </div>
+
+              {/* Row 3 */}
+              <div className="flex flex-col items-center space-y-2">
+                <i className="devicon-python-plain colored text-6xl" />
+                <span className="text-sm">Python</span>
+              </div>
+              <div className="flex flex-col items-center space-y-2">
+                <i className="devicon-c-plain colored text-6xl" />
+                <span className="text-sm">C</span>
+              </div>
+              <div className="flex flex-col items-center space-y-2">
+                <i className="devicon-cplusplus-plain colored text-6xl" />
+                <span className="text-sm">C++</span>
+              </div>
+              <div className="flex flex-col items-center space-y-2">
+                <i className="devicon-git-plain colored text-6xl" />
+                <span className="text-sm">Git</span>
+              </div>
             </div>
           </div>
         </section>
+
 
         {/* Projects Section */}
         <section id="projects" className="py-28 bg-gray-900 text-gray-100">

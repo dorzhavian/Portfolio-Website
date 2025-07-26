@@ -31,6 +31,10 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
         />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+        />
       </head>
       <body className="font-sans antialiased bg-black text-gray-100">
         {children}
