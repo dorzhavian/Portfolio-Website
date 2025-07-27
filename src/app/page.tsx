@@ -5,8 +5,36 @@ import Footer from "../components/Footer";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
+import { useState } from "react";
 
 export default function Home() {
+  const [status, setStatus] = useState<"idle" | "success" | "error" | "loading">("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xpwldvde", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        throw new Error("Form error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+  
   return (
     <div className="flex flex-col min-h-screen bg-black text-gray-100">
       <Header />
@@ -203,34 +231,79 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" className="py-28 bg-gray-900 text-gray-100">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-5xl font-extrabold mb-10 text-purple-500">
+          <div className="container mx-auto px-4">
+            <h2 className="text-5xl font-extrabold mb-12 text-center text-purple-500">
               Contact Me
             </h2>
-            <div className="flex justify-center space-x-10">
-              <a
-                href="tel:0526005290"
-                className="text-gray-300 hover:text-purple-400 transition-transform transform hover:scale-125"
-                aria-label="Call me"
-              >
-                <i className="bi bi-telephone-fill text-5xl"></i>
-              </a>
-              <a
-                href="mailto:dorzhavian@gmail.com"
-                className="text-gray-300 hover:text-purple-400 transition-transform transform hover:scale-125"
-                aria-label="Send email"
-              >
-                <i className="bi bi-envelope-fill text-5xl"></i>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/dor-zhavian-19a88b30a"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-purple-400 transition-transform transform hover:scale-125"
-                aria-label="LinkedIn profile"
-              >
-                <i className="bi bi-linkedin text-5xl"></i>
-              </a>
+
+            <div className="bg-gray-800 rounded-xl p-10 grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto shadow-lg">
+              {/* Left side – info */}
+              <div className="space-y-6">
+                <h3 className="text-3xl font-bold">Let's Talk</h3>
+                <p className="text-gray-300">
+                  Have a question or want to work together? Leave your details and I’ll get back to you as soon as possible.
+                </p>
+
+                <div className="space-y-4 text-gray-200">
+                  <div className="flex items-center space-x-4">
+                    <i className="bi bi-geo-alt-fill text-purple-400 text-2xl"></i>
+                    <span>Netanya, Israel</span>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <i className="bi bi-envelope-fill text-purple-400 text-2xl"></i>
+                    <span>dorzhavian@gmail.com</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right side – form */}
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    required
+                    className="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    required
+                    className="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                </div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                  className="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                />
+                <textarea
+                  name="message"
+                  rows={4}
+                  placeholder="Your Message"
+                  required
+                  className="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                />
+                <button
+                  type="submit"
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-md font-semibold transition duration-300 disabled:opacity-50"
+                  disabled={status === "loading"}
+                >
+                  {status === "loading" ? "Sending..." : "Send"}
+                </button>
+
+                {/* Feedback */}
+                {status === "success" && (
+                  <p className="text-green-400 text-sm mt-2">Message sent successfully!</p>
+                )}
+                {status === "error" && (
+                  <p className="text-red-400 text-sm mt-2">Something went wrong. Please try again.</p>
+                )}
+              </form>
             </div>
           </div>
         </section>
