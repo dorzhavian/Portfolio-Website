@@ -5,9 +5,15 @@ import Footer from "../components/Footer";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 
 export default function Home() {
+  {/*Every refresh return to Hero section*/}
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  {/*Function for Email in contact section with feedback*/}
   const [status, setStatus] = useState<"idle" | "success" | "error" | "loading">("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
