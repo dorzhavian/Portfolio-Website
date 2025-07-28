@@ -2,6 +2,7 @@
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import AnimatedBackground from "../components/AnimatedBackground";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
@@ -48,12 +49,15 @@ export default function Home() {
         {/* Hero Section */}
         <motion.section
           id="hero"
-          className="h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 text-white flex flex-col justify-center items-center text-center relative"
+          className="h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 text-white flex flex-col justify-center items-center text-center relative overflow-hidden"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          <div className="flex flex-col items-center space-y-6">
+          {/* Heavy animation for Hero */}
+          <AnimatedBackground intensity="heavy" />
+          
+          <div className="flex flex-col items-center space-y-6 relative z-10">
             <img
               src="/profile.png"
               alt="Dor Zhavian"
@@ -83,7 +87,7 @@ export default function Home() {
                   window.scrollTo({ top: y, behavior: "smooth" });
                 }
               }}
-              className="mt-8 inline-block px-8 py-3 bg-purple-600 text-white font-medium rounded-full shadow-lg hover:bg-purple-700 transition"
+              className="mt-8 inline-block px-8 py-3 bg-purple-600 text-white font-medium rounded-full shadow-lg hover:bg-purple-700 transition relative z-10"
             >
               View My Work
             </a>
@@ -91,8 +95,11 @@ export default function Home() {
         </motion.section>
 
         {/* About Section */}
-        <section id="about" className="py-28 bg-gray-900 text-gray-100">
-          <div className="container mx-auto px-4 text-center">
+        <section id="about" className="py-28 bg-gray-900 text-gray-100 relative overflow-hidden">
+          {/* Light animation for About section */}
+          <AnimatedBackground intensity="light" />
+          
+          <div className="container mx-auto px-4 text-center relative z-10">
             <h2 className="text-5xl font-extrabold mb-6 text-purple-500">
               About Me
             </h2>
@@ -106,7 +113,7 @@ export default function Home() {
                 I specialize in building full-stack applications that are scalable, secure, and user-friendly. My stack includes <span className="text-purple-400">Java</span>, <span className="text-purple-400">TypeScript</span>, <span className="text-purple-400">React</span> & <span className="text-purple-400">Next.js</span>, plus SQL/NoSQL DBs.
               </p>
               <p>
-                I’m constantly exploring new tech, contributing to challenging projects, and writing clean, maintainable code that makes an impact.
+                I'm constantly exploring new tech, contributing to challenging projects, and writing clean, maintainable code that makes an impact.
               </p>
             </div>
 
@@ -169,10 +176,12 @@ export default function Home() {
           </div>
         </section>
 
-
         {/* Projects Section */}
-        <section id="projects" className="py-28 bg-gray-900 text-gray-100">
-          <div className="container mx-auto px-4 text-center">
+        <section id="projects" className="py-28 bg-gray-900 text-gray-100 relative overflow-hidden">
+          {/* Medium animation for Projects section */}
+          <AnimatedBackground intensity="medium" />
+          
+          <div className="container mx-auto px-4 text-center relative z-10">
             <h2 className="text-5xl font-extrabold mb-6 text-purple-500">
               Projects
             </h2>
@@ -236,8 +245,11 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-28 bg-gray-900 text-gray-100">
-          <div className="container mx-auto px-4">
+        <section id="contact" className="py-28 bg-gray-900 text-gray-100 relative overflow-hidden">
+          {/* Light animation for Contact section */}
+          <AnimatedBackground intensity="light" />
+          
+          <div className="container mx-auto px-4 relative z-10">
             <h2 className="text-5xl font-extrabold mb-12 text-center text-purple-500">
               Contact Me
             </h2>
@@ -247,7 +259,7 @@ export default function Home() {
               <div className="space-y-6">
                 <h3 className="text-3xl font-bold">Let's Talk</h3>
                 <p className="text-gray-300">
-                  Have a question or want to work together? Leave your details and I’ll get back to you as soon as possible.
+                  Have a question or want to work together? Leave your details and I'll get back to you as soon as possible.
                 </p>
 
                 <div className="space-y-4 text-gray-200">

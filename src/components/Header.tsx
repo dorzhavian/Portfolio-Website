@@ -25,7 +25,9 @@ const Header = () => {
     <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md text-gray-100 z-50">
       <nav className="container mx-auto flex justify-between items-center px-4 py-3">
         <h1 className="text-lg md:text-xl font-bold tracking-wide">ZHAVIAN.</h1>
-        <ul className="absolute left-1/2 transform -translate-x-1/2 flex space-x-6 text-sm md:text-base font-medium">
+
+        {/* Desktop Nav */}
+        <ul className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-6 text-sm md:text-base font-medium">
           <li>
             <a
               href="#hero"
@@ -64,8 +66,9 @@ const Header = () => {
           </li>
         </ul>
 
+        {/* Hamburger Button */}
         <button
-          className="md:hidden focus:outline-none"
+          className="block md:hidden focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
           <svg
@@ -93,6 +96,7 @@ const Header = () => {
         </button>
       </nav>
 
+      {/* Mobile Nav */}
       {isOpen && (
         <div className="md:hidden bg-black bg-opacity-80 backdrop-blur-md">
           <ul className="flex flex-col space-y-4 px-4 py-4 text-sm">
