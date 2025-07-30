@@ -107,13 +107,13 @@ export default function Home() {
 
             <div className="text-xl leading-relaxed max-w-3xl mx-auto text-gray-300 space-y-6 mb-16">
               <p>
-                I'm <span className="text-purple-400 font-semibold">Dor Zhavian</span>, a dedicated <span className="text-purple-400 font-semibold">software engineering student</span> with a passion for creating intuitive and efficient digital experiences.
+                I&apos;m <span className="text-purple-400 font-semibold">Dor Zhavian</span>, a dedicated <span className="text-purple-400 font-semibold">software engineering student</span> with a passion for creating intuitive and efficient digital experiences.
               </p>
               <p>
-                I specialize in building full-stack applications that are scalable, secure, and user-friendly. My stack includes <span className="text-purple-400">Java</span>, <span className="text-purple-400">TypeScript</span>, <span className="text-purple-400">React</span> & <span className="text-purple-400">Next.js</span>, plus SQL/NoSQL DBs.
+                I specialize in building full-stack applications that are scalable, secure, and user-friendly. My stack includes <span className="text-purple-400">Java</span>, <span className="text-purple-400">TypeScript</span>, <span className="text-purple-400">React</span> &amp; <span className="text-purple-400">Next.js</span>, plus SQL/NoSQL DBs.
               </p>
               <p>
-                I'm constantly exploring new tech, contributing to challenging projects, and writing clean, maintainable code that makes an impact.
+                I&apos;m constantly exploring new tech, contributing to challenging projects, and writing clean, maintainable code that makes an impact.
               </p>
             </div>
 
@@ -257,9 +257,9 @@ export default function Home() {
             <div className="bg-gray-800 rounded-xl p-10 grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto shadow-lg">
               {/* Left side – info */}
               <div className="space-y-6">
-                <h3 className="text-3xl font-bold">Let's Talk</h3>
+                <h3 className="text-3xl font-bold">Let&apos;s Talk</h3>
                 <p className="text-gray-300">
-                  Have a question or want to work together? Leave your details and I'll get back to you as soon as possible.
+                  Have a question or want to work together? Leave your details and I&apos;ll get back to you as soon as possible.
                 </p>
 
                 <div className="space-y-4 text-gray-200">

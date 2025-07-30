@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex space-x-6">
           {/* Phone */}
           <a
-            href="tel:0526005290"
+            href="tel:+972526005290"
             className="hover:text-purple-400 transition-colors duration-300"
             aria-label="Call me"
           >
