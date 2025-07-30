@@ -60,7 +60,7 @@ export default function Home() {
           
           <div className="flex flex-col items-center space-y-6 relative z-10">
             <Image
-              src="/profile.png"
+              src="/profilePicture.png"
               alt="Dor Zhavian"
               width={160}
               height={160}
