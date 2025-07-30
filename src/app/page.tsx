@@ -7,6 +7,7 @@ import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { useState , useEffect} from "react";
+import Image from 'next/image';
 
 export default function Home() {
   {/*Every refresh return to Hero section*/}
@@ -58,10 +59,12 @@ export default function Home() {
           <AnimatedBackground intensity="heavy" />
           
           <div className="flex flex-col items-center space-y-6 relative z-10">
-            <img
+            <Image
               src="/profile.png"
               alt="Dor Zhavian"
-              className="w-40 h-40 rounded-full object-contain"
+              width={160}
+              height={160}
+              className="rounded-full object-contain"
             />
             <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight">
               <Typewriter
