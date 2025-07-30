@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { useState , useEffect} from "react";
 import Image from 'next/image';
+import { FaJava, FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaPython } from "react-icons/fa";
+import { SiTypescript, SiNextdotjs, SiPostgresql, SiCplusplus } from "react-icons/si";
 
 export default function Home() {
   {/*Every refresh return to Hero section*/}
@@ -107,7 +109,9 @@ export default function Home() {
               About Me
             </h2>
             <div className="w-24 h-1 bg-purple-600 mx-auto mb-8 rounded"></div>
-
+            <h3 className="text-2xl font-extrabold mb-6 text-white-300">
+              Who I am ?
+            </h3>
             <div className="text-xl leading-relaxed max-w-3xl mx-auto text-gray-300 space-y-6 mb-16">
             <p>
               Hi, I&apos;m <span className="text-purple-400 font-semibold">Dor Zhavian</span>, a <span className="text-purple-400 font-semibold">software engineering student</span> and full‑stack developer passionate about building scalable, secure, and user‑friendly applications.
@@ -116,66 +120,40 @@ export default function Home() {
               I enjoy tackling complex challenges, exploring new technologies, and writing clean, maintainable code that makes an impact.
             </p>
             <p>
-              In my free time, I enjoy playing soccer, solving crosswords, reading general knowledge, and playing FIFA.
+              In my free time I enjoy playing soccer, solving crosswords, reading general knowledge, and playing FIFA.
             </p>
             </div>
 
             {/* Skills Grid */}
-            <div className="grid grid-cols-4 gap-10 justify-center items-start">
-              {/* Row 1 */}
-              <div className="flex flex-col items-center space-y-2">
-                <i className="devicon-html5-plain colored text-6xl" />
-                <span className="text-sm">HTML</span>
+            <section id="skills" className="py-28 bg-gray-900 text-gray-100 relative overflow-hidden">
+              <div className="container mx-auto px-4 text-center relative z-10">
+                <h2 className="text-5xl font-extrabold mb-6 text-purple-500">
+                Skills
+                </h2>
+                <div className="w-24 h-1 bg-purple-600 mx-auto mb-12 rounded"></div>
+                <div className="space-y-10">
+                  {/* Row 1: 3 items */}
+                  <div className="flex justify-center gap-10 text-7xl">
+                    <FaJava className="text-purple-400" title="Java" />
+                    <SiTypescript className="text-white" title="TypeScript" />
+                    <FaReact className="text-purple-400" title="React" />
+                  </div>
+                  {/* Row 2: 4 items */}
+                  <div className="flex justify-center gap-10 text-7xl">
+                    <SiNextdotjs className="text-white" title="Next.js" />
+                    <FaNodeJs className="text-purple-400" title="Node.js" />
+                    <SiPostgresql className="text-white" title="PostgreSQL" />
+                    <SiCplusplus className="text-purple-400" title="C++" />
+                  </div>
+                  {/* Row 3: 3 items */}
+                  <div className="flex justify-center gap-10 text-7xl">
+                    <FaDatabase className="text-white" title="SQL/NoSQL" />
+                    <FaGitAlt className="text-purple-400" title="Git" />
+                    <FaPython className="text-white" title="Python" />
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <i className="devicon-javascript-plain colored text-6xl" />
-                <span className="text-sm">JavaScript</span>
-              </div>
-              <div className="flex flex-col items-center space-y-2">
-                <i className="devicon-css3-plain colored text-6xl" />
-                <span className="text-sm">CSS</span>
-              </div>
-              <div className="flex flex-col items-center space-y-2">
-                <i className="devicon-react-original colored text-6xl" />
-                <span className="text-sm">React</span>
-              </div>
-
-              {/* Row 2 */}
-              <div className="flex flex-col items-center space-y-2">
-                <i className="devicon-nextjs-original colored text-6xl" />
-                <span className="text-sm">Next.js</span>
-              </div>
-              <div className="flex flex-col items-center space-y-2">
-                <i className="devicon-nodejs-plain colored text-6xl" />
-                <span className="text-sm">Node.js</span>
-              </div>
-              <div className="flex flex-col items-center space-y-2">
-                <i className="devicon-java-plain colored text-6xl" />
-                <span className="text-sm">Java</span>
-              </div>
-              <div className="flex flex-col items-center space-y-2">
-                <i className="devicon-typescript-plain colored text-6xl" />
-                <span className="text-sm">TypeScript</span>
-              </div>
-
-              {/* Row 3 */}
-              <div className="flex flex-col items-center space-y-2">
-                <i className="devicon-python-plain colored text-6xl" />
-                <span className="text-sm">Python</span>
-              </div>
-              <div className="flex flex-col items-center space-y-2">
-                <i className="devicon-c-plain colored text-6xl" />
-                <span className="text-sm">C</span>
-              </div>
-              <div className="flex flex-col items-center space-y-2">
-                <i className="devicon-cplusplus-plain colored text-6xl" />
-                <span className="text-sm">C++</span>
-              </div>
-              <div className="flex flex-col items-center space-y-2">
-                <i className="devicon-git-plain colored text-6xl" />
-                <span className="text-sm">Git</span>
-              </div>
-            </div>
+            </section>
           </div>
         </section>
 

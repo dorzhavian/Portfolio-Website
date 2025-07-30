@@ -15,7 +15,7 @@ const Header = () => {
       const y = target.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: y,
-        behavior: "smooth"
+        behavior: "smooth",
       });
       setIsOpen(false);
     }
@@ -44,6 +44,15 @@ const Header = () => {
               className="hover:text-purple-400 transition-colors duration-300"
             >
               About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#skills"
+              onClick={(e) => handleScroll(e, "#skills")}
+              className="hover:text-purple-400 transition-colors duration-300"
+            >
+              Skills
             </a>
           </li>
           <li>
@@ -116,6 +125,15 @@ const Header = () => {
                 className="block py-2 hover:text-purple-400 transition-colors duration-300"
               >
                 About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#skills"
+                onClick={(e) => handleScroll(e, "#skills")}
+                className="block py-2 hover:text-purple-400 transition-colors duration-300"
+              >
+                Skills
               </a>
             </li>
             <li>
