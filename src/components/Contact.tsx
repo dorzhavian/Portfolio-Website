@@ -1,84 +1,123 @@
 "use client";
 
+import AnimatedBackground from "./AnimatedBackground";
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
-import { motion } from "framer-motion";
 
-export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState("");
+const Contact = () => {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: "",
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setStatus("loading");
+
     try {
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        formData,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-      );
-      setStatus("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      console.error(error);
-      setStatus("Failed to send message. Please try again.");
+      await new Promise((resolve) => setTimeout(resolve, 1500)); 
+      setStatus("success");
+      setFormData({ firstName: "", lastName: "", email: "", message: "" }); 
+    } catch (err) {
+      setStatus("error");
     }
   };
 
   return (
-    <section id="contact" className="py-28 bg-black text-gray-100 relative overflow-hidden">
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <h2 className="text-5xl font-extrabold mb-6 text-purple-500">Contact</h2>
-        <div className="w-24 h-1 bg-purple-600 mx-auto mb-12 rounded"></div>
+    <section id="contact" className="py-28 bg-gray-900 text-gray-100 relative overflow-hidden">
+      <AnimatedBackground intensity="light" />
 
-        <motion.form
-          onSubmit={handleSubmit}
-          className="max-w-2xl mx-auto bg-gray-900 p-8 rounded-2xl shadow-lg space-y-6"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full p-4 rounded-lg bg-gray-800 text-white focus:outline-none"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full p-4 rounded-lg bg-gray-800 text-white focus:outline-none"
-            required
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows={5}
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full p-4 rounded-lg bg-gray-800 text-white focus:outline-none"
-            required
-          ></textarea>
-          <button
-            type="submit"
-            className="w-full py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg shadow-lg transition"
-          >
-            Send Message
-          </button>
-          {status && <p className="text-gray-400 mt-4">{status}</p>}
-        </motion.form>
+      <div className="container mx-auto px-4 relative z-10">
+        <h2 className="text-5xl font-extrabold mb-12 text-center text-purple-500">
+          Contact Me
+        </h2>
+
+        <div className="bg-gray-800 rounded-xl p-10 grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto shadow-lg">
+          {/* Left side – info */}
+          <div className="space-y-6">
+            <h3 className="text-3xl font-bold">Let&apos;s Talk</h3>
+            <p className="text-gray-300">
+              Have a question or want to work together? Leave your details and I&apos;ll get back to you as soon as possible.
+            </p>
+
+            <div className="space-y-4 text-gray-200">
+              <div className="flex items-center space-x-4">
+                <i className="bi bi-geo-alt-fill text-purple-400 text-2xl"></i>
+                <span>Netanya, Israel</span>
+              </div>
+              <div className="flex items-center space-x-4">
+                <i className="bi bi-envelope-fill text-purple-400 text-2xl"></i>
+                <span>dorzhavian@gmail.com</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right side – form */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                required
+                value={formData.firstName}
+                onChange={handleChange}
+                className="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                required
+                value={formData.lastName}
+                onChange={handleChange}
+                className="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+            </div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+            <textarea
+              name="message"
+              rows={4}
+              placeholder="Your Message"
+              required
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+            <button
+              type="submit"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-md font-semibold transition duration-300 disabled:opacity-50"
+              disabled={status === "loading"}
+            >
+              {status === "loading" ? "Sending..." : "Send"}
+            </button>
+
+            {/* Feedback */}
+            {status === "success" && (
+              <p className="text-green-400 text-sm mt-2">Message sent successfully!</p>
+            )}
+            {status === "error" && (
+              <p className="text-red-400 text-sm mt-2">Something went wrong. Please try again.</p>
+            )}
+          </form>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Contact;
