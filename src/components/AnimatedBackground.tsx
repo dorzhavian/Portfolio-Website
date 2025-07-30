@@ -1,134 +1,155 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 
 interface AnimatedBackgroundProps {
-  intensity?: 'light' | 'medium' | 'heavy';
+  intensity?: "light" | "medium" | "heavy";
   className?: string;
 }
 
-const AnimatedBackground = ({ 
-  intensity = 'medium', 
-  className = '' 
+const AnimatedBackground = ({
+  intensity = "medium",
+  className = "",
 }: AnimatedBackgroundProps) => {
-  
   const configs = {
-    light: {
-      particles: 40,
-      lines: 8,
-      orbs: 12,
-      opacity: 0.3
-    },
-    medium: {
-      particles: 80,
-      lines: 15,
-      orbs: 20,
-      opacity: 0.4
-    },
-    heavy: {
-      particles: 120,
-      lines: 25,
-      orbs: 30,
-      opacity: 0.5
-    }
+    light: { particles: 40, lines: 6, orbs: 8, opacity: 0.25 },
+    medium: { particles: 80, lines: 12, orbs: 14, opacity: 0.35 },
+    heavy: { particles: 140, lines: 20, orbs: 22, opacity: 0.45 },
   };
 
   const config = configs[intensity];
 
-  const particles = Array.from({ length: config.particles }, (_, i) => ({
-    id: i,
-    left: Math.random() * 100,
-    top: Math.random() * 100,
-    delay: Math.random() * 5,
-    duration: 4 + Math.random() * 6,
-    size: 1 + Math.random() * 3,
-    opacity: (config.opacity * 0.5) + Math.random() * (config.opacity * 0.5)
-  }));
+  const particles = useMemo(
+    () =>
+      Array.from({ length: config.particles }, (_, i) => ({
+        id: i,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 5,
+        duration: 3 + Math.random() * 5,
+        size: 1 + Math.random() * 2,
+        opacity: (config.opacity * 0.5) + Math.random() * (config.opacity * 0.5),
+        blur: Math.random() > 0.7, // חלק עם blur
+      })),
+    [config.particles, config.opacity]
+  );
+
+  const lines = useMemo(
+    () =>
+      Array.from({ length: config.lines }, (_, i) => ({
+        id: i,
+        left: Math.random() * 90,
+        top: Math.random() * 90,
+        width: 40 + Math.random() * 120,
+        rotate: Math.random() * 360,
+        delay: Math.random() * 2,
+      })),
+    [config.lines]
+  );
+
+  const colors = ["#3b82f6", "#8b5cf6", "#06b6d4", "#10b981"];
+
+  const orbs = useMemo(
+    () =>
+      Array.from({ length: config.orbs }, (_, i) => {
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        return {
+          id: i,
+          left: Math.random() * 100,
+          top: Math.random() * 100,
+          size: 4 + Math.random() * 10,
+          color,
+          shadow: `0 0 ${10 + Math.random() * 20}px ${color}`,
+          delay: Math.random() * 2,
+        };
+      }),
+    [config.orbs]
+  );
 
   return (
-    <div className={`absolute inset-0 w-full h-full overflow-hidden ${className}`} style={{ zIndex: 1 }}>
-      {/* Animated particles */}
-      {particles.map((particle) => (
+    <div
+      className={`absolute inset-0 w-full h-full overflow-hidden ${className}`}
+      style={{ zIndex: 1 }}
+    >
+      {/* Particles */}
+      {particles.map((p) => (
         <motion.div
-          key={particle.id}
+          key={p.id}
           className="absolute rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400"
           style={{
-            left: `${particle.left}%`,
-            top: `${particle.top}%`,
-            width: `${particle.size}px`,
-            height: `${particle.size}px`,
-            opacity: particle.opacity,
+            left: `${p.left}%`,
+            top: `${p.top}%`,
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            opacity: p.opacity,
+            filter: p.blur ? "blur(1px)" : "none",
           }}
           animate={{
-            y: [-20, 20, -20],
-            x: [-15, 15, -15],
-            scale: [1, 1.2, 1],
-            opacity: [particle.opacity, particle.opacity * 1.5, particle.opacity],
+            y: [-15, 15, -15],
+            x: [-10, 10, -10],
+            opacity: [p.opacity, p.opacity * 1.5, p.opacity],
           }}
           transition={{
-            duration: particle.duration,
+            duration: p.duration,
             repeat: Infinity,
-            delay: particle.delay,
-            ease: "easeInOut",
+            delay: p.delay,
+            ease: Math.random() > 0.5 ? "easeInOut" : "easeIn",
           }}
         />
       ))}
 
-      {/* Connection lines */}
-      {Array.from({ length: config.lines }, (_, i) => (
+      {/* Lines */}
+      {lines.map((l) => (
         <motion.div
-          key={`line-${i}`}
+          key={`line-${l.id}`}
           className="absolute bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
           style={{
-            left: `${Math.random() * 90}%`,
-            top: `${Math.random() * 90}%`,
-            width: `${50 + Math.random() * 100}px`,
-            height: '1px',
-            transformOrigin: 'center',
-            rotate: `${Math.random() * 360}deg`,
-            opacity: config.opacity * 0.8,
+            left: `${l.left}%`,
+            top: `${l.top}%`,
+            width: `${l.width}px`,
+            height: "1px",
+            transformOrigin: "center",
+            rotate: `${l.rotate}deg`,
+            opacity: config.opacity * 0.7,
           }}
           animate={{
-            opacity: [0, config.opacity * 0.8, 0],
-            scaleX: [0.5, 1, 0.5],
+            opacity: [0, config.opacity * 0.7, 0],
+            scaleX: [0.4, 1, 0.4],
           }}
           transition={{
-            duration: 3 + Math.random() * 4,
+            duration: 3 + Math.random() * 3,
             repeat: Infinity,
-            delay: Math.random() * 3,
+            delay: l.delay,
             ease: "easeInOut",
           }}
         />
       ))}
 
-      {/* Glowing orbs */}
-      {Array.from({ length: config.orbs }, (_, i) => (
+      {/* Orbs */}
+      {orbs.map((o) => (
         <motion.div
-          key={`orb-${i}`}
+          key={`orb-${o.id}`}
           className="absolute rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            width: `${4 + Math.random() * 8}px`,
-            height: `${4 + Math.random() * 8}px`,
-            background: `radial-gradient(circle, ${
-              ['#3b82f6', '#8b5cf6', '#06b6d4', '#10b981'][Math.floor(Math.random() * 4)]
-            }, transparent)`,
-            boxShadow: `0 0 ${10 + Math.random() * 20}px ${
-              ['#3b82f6', '#8b5cf6', '#06b6d4', '#10b981'][Math.floor(Math.random() * 4)]
-            }`,
+            left: `${o.left}%`,
+            top: `${o.top}%`,
+            width: `${o.size}px`,
+            height: `${o.size}px`,
+            background: `radial-gradient(circle, ${o.color}, transparent)`,
+            boxShadow: o.shadow,
             opacity: config.opacity,
           }}
           animate={{
-            scale: [1, 1.5, 1],
+            scale: [1, 1.3, 1],
             opacity: [config.opacity * 0.5, config.opacity, config.opacity * 0.5],
-            x: [-10, 10, -10],
-            y: [-10, 10, -10],
+            x: [-8, 8, -8],
+            y: [-8, 8, -8],
           }}
           transition={{
-            duration: 4 + Math.random() * 4,
+            duration: 4 + Math.random() * 3,
             repeat: Infinity,
-            delay: Math.random() * 2,
+            delay: o.delay,
             ease: "easeInOut",
           }}
         />

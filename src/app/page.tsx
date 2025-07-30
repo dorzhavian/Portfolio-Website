@@ -109,15 +109,15 @@ export default function Home() {
             <div className="w-24 h-1 bg-purple-600 mx-auto mb-8 rounded"></div>
 
             <div className="text-xl leading-relaxed max-w-3xl mx-auto text-gray-300 space-y-6 mb-16">
-              <p>
-                I&apos;m <span className="text-purple-400 font-semibold">Dor Zhavian</span>, a dedicated <span className="text-purple-400 font-semibold">software engineering student</span> with a passion for creating intuitive and efficient digital experiences.
-              </p>
-              <p>
-                I specialize in building full-stack applications that are scalable, secure, and user-friendly. My stack includes <span className="text-purple-400">Java</span>, <span className="text-purple-400">TypeScript</span>, <span className="text-purple-400">React</span> &amp; <span className="text-purple-400">Next.js</span>, plus SQL/NoSQL DBs.
-              </p>
-              <p>
-                I&apos;m constantly exploring new tech, contributing to challenging projects, and writing clean, maintainable code that makes an impact.
-              </p>
+            <p>
+              Hi, I&apos;m <span className="text-purple-400 font-semibold">Dor Zhavian</span>, a <span className="text-purple-400 font-semibold">software engineering student</span> and full‑stack developer passionate about building scalable, secure, and user‑friendly applications.
+            </p>
+            <p>
+              I enjoy tackling complex challenges, exploring new technologies, and writing clean, maintainable code that makes an impact.
+            </p>
+            <p>
+              In my free time, I enjoy playing soccer, solving crosswords, reading general knowledge, and playing FIFA.
+            </p>
             </div>
 
             {/* Skills Grid */}
