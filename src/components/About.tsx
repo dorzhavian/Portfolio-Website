@@ -21,7 +21,7 @@ export default function About() {
         </h3>
         <div className="text-xl leading-relaxed max-w-3xl mx-auto text-gray-300 space-y-6 mb-16">
           <p>
-            Hi, I&apos;m <span className="text-purple-400 font-semibold">Dor Zhavian</span>, a{" "}
+            Hi, I&apos;m <span className="text-purple-400 font-semibold">Dor Zhavian</span> a{" "}
             <span className="text-purple-400 font-semibold">software engineering student</span> and full‑stack developer passionate about building scalable, secure, and user‑friendly applications.
           </p>
           <p>
