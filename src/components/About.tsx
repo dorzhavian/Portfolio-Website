@@ -3,6 +3,11 @@
 import AnimatedBackground from "./AnimatedBackground";
 import { motion } from "framer-motion";
 
+const textVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function About() {
   return (
     <section
@@ -45,13 +50,10 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           transition={{ staggerChildren: 0.3 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
           <motion.p
-            variants={{
-              hidden: { opacity: 0, y: 40 },
-              visible: { opacity: 1, y: 0 },
-            }}
+            variants={textVariants}
             transition={{ duration: 0.8 }}
           >
             Hi, I&apos;m{" "}
@@ -64,10 +66,7 @@ export default function About() {
           </motion.p>
 
           <motion.p
-            variants={{
-              hidden: { opacity: 0, y: 40 },
-              visible: { opacity: 1, y: 0 },
-            }}
+            variants={textVariants}
             transition={{ duration: 0.8 }}
           >
             I enjoy tackling complex challenges, exploring new technologies,
@@ -75,10 +74,7 @@ export default function About() {
           </motion.p>
 
           <motion.p
-            variants={{
-              hidden: { opacity: 0, y: 40 },
-              visible: { opacity: 1, y: 0 },
-            }}
+            variants={textVariants}
             transition={{ duration: 0.8 }}
           >
             In my free time I enjoy playing soccer, solving crosswords,

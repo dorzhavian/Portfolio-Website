@@ -24,6 +24,7 @@ export default function Hero() {
           width={160}
           height={160}
           className="rounded-full object-contain"
+          priority
         />
         <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight">
           <Typewriter

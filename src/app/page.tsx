@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Hero from "../components/Hero";
-import About from "../components/About";
-import Skills from "../components/Skills";
-import Projects from "../components/Projects";
-import Contact from "../components/Contact";
+
+const Footer = dynamic(() => import("../components/Footer"));
+const About = dynamic(() => import("../components/About"));
+const Skills = dynamic(() => import("../components/Skills"));
+const Projects = dynamic(() => import("../components/Projects"));
+const Contact = dynamic(() => import("../components/Contact"));
 
 export default function Home() {
   // Every refresh return to Hero section

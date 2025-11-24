@@ -42,6 +42,9 @@ const Projects = () => {
     const fetchRepos = async () => {
       try {
         const res = await fetch("https://api.github.com/users/dorzhavian/repos");
+        if (!res.ok) {
+          throw new Error(`GitHub API error: ${res.status}`);
+        }
         const data: Repo[] = await res.json();
 
         const starred = data.filter((repo) => repo.stargazers_count > 0);

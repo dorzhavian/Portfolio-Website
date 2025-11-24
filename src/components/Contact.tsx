@@ -57,6 +57,7 @@ const Contact = () => {
     e.preventDefault();
     setStatus("loading");
     try {
+      // TODO: Integrate EmailJS or a backend service here
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setStatus("success");
       setFormData({ firstName: "", lastName: "", email: "", message: "" });

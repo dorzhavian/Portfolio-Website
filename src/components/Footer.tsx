@@ -1,11 +1,13 @@
 "use client";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-black/50 backdrop-blur-md text-gray-400 py-6">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
         <p className="text-sm mb-4 md:mb-0">
-          © 2025 Dor Zhavian. All rights reserved.
+          © {currentYear} Dor Zhavian. All rights reserved.
         </p>
         <div className="flex space-x-6">
           {/* Phone */}

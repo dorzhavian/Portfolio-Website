@@ -1,11 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
+
+const navLinks = [
+  { name: "Home", href: "#hero" },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleScroll = (
+  const handleScroll = useCallback((
     e: React.MouseEvent<HTMLAnchorElement>,
     targetId: string
   ) => {
@@ -19,7 +27,7 @@ const Header = () => {
       });
       setIsOpen(false);
     }
-  };
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 w-full bg-black/30 backdrop-blur-md text-gray-100 z-50">
@@ -28,51 +36,17 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-6 text-sm md:text-base font-medium">
-          <li>
-            <a
-              href="#hero"
-              onClick={(e) => handleScroll(e, "#hero")}
-              className="hover:text-purple-400 transition-colors duration-300"
-            >
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              href="#about"
-              onClick={(e) => handleScroll(e, "#about")}
-              className="hover:text-purple-400 transition-colors duration-300"
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="#skills"
-              onClick={(e) => handleScroll(e, "#skills")}
-              className="hover:text-purple-400 transition-colors duration-300"
-            >
-              Skills
-            </a>
-          </li>
-          <li>
-            <a
-              href="#projects"
-              onClick={(e) => handleScroll(e, "#projects")}
-              className="hover:text-purple-400 transition-colors duration-300"
-            >
-              Projects
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              onClick={(e) => handleScroll(e, "#contact")}
-              className="hover:text-purple-400 transition-colors duration-300"
-            >
-              Contact
-            </a>
-          </li>
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <a
+                href={link.href}
+                onClick={(e) => handleScroll(e, link.href)}
+                className="hover:text-purple-400 transition-colors duration-300"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
         </ul>
 
         {/* Hamburger Button */}
@@ -109,51 +83,17 @@ const Header = () => {
       {isOpen && (
         <div className="md:hidden bg-black bg-opacity-80 backdrop-blur-md">
           <ul className="flex flex-col space-y-4 px-4 py-4 text-sm">
-            <li>
-              <a
-                href="#hero"
-                onClick={(e) => handleScroll(e, "#hero")}
-                className="block py-2 hover:text-purple-400 transition-colors duration-300"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                onClick={(e) => handleScroll(e, "#about")}
-                className="block py-2 hover:text-purple-400 transition-colors duration-300"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#skills"
-                onClick={(e) => handleScroll(e, "#skills")}
-                className="block py-2 hover:text-purple-400 transition-colors duration-300"
-              >
-                Skills
-              </a>
-            </li>
-            <li>
-              <a
-                href="#projects"
-                onClick={(e) => handleScroll(e, "#projects")}
-                className="block py-2 hover:text-purple-400 transition-colors duration-300"
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                onClick={(e) => handleScroll(e, "#contact")}
-                className="block py-2 hover:text-purple-400 transition-colors duration-300"
-              >
-                Contact
-              </a>
-            </li>
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <a
+                  href={link.href}
+                  onClick={(e) => handleScroll(e, link.href)}
+                  className="block py-2 hover:text-purple-400 transition-colors duration-300"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       )}
